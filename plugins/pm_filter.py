@@ -655,7 +655,7 @@ async def auto_filter(client, msg, spoll=False):
             url = imdb['url']
         )
     else:
-        cap = "<b>🎬 Title : {search}\n🌟 8.7/10 | IMDb\n🎭 Genres: Document, Drama, Thriller\n👤 Requested By: {message.from_user.mention}\n\n© By {message.chat.title}</b>"
+        cap = f"<b>🎬 Title : {search}\n🌟 8.7/10 | IMDb\n🎭 Genres: Document, Drama, Thriller\n👤 Requested By: {message.from_user.mention}\n\n© By {message.chat.title}</b>"
     if imdb and imdb.get('poster'):
         try:
             await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
