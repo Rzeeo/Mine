@@ -73,7 +73,7 @@ async def next_page(bot, query):
 
     ident, req, key, offset = query.data.split("_")
     if int(req) not in [query.from_user.id, 0]:
-        return await query.answer(f"⚠️ ഹെലോ {query.from_user.first_name} ബ്രോ, ഇതു {query.message.reply_to_message.from_user.first_name} റിക്വസ്റ്റ് ചെയിത മൂവിയുടെ റിസൾട്ട്സ് കുത്തി നോക്കാതെ ബ്രോന് വേണ്ടത് ബ്രോ റിക്വസ്റ്റ് ചെയ്യുക 😬\n\n⚠️ Hey {query.from_user.first_name} Bro, Search Your Own File, Don't Click Others Results 😬", show_alert=True)
+        return await query.answer(f"⚠️ ഹെലോ {query.from_user.first_name} ബ്രോ, ഇതു {query.message.reply_to_message.from_user.first_name} റിക്വസ്റ്റ് ചെയിത മൂവിയുടെ റിസൾട്ട്സ് ആണ് 😬\n\n⚠️ Hey {query.from_user.first_name} Bro, Search Your Own File, Don't Click Others Results 😬", show_alert=True)
     try:
         offset = int(offset)
     except:
@@ -149,7 +149,7 @@ async def advantage_spoll_choker(bot, query):
     if not movies:
         return await query.answer(f"⚠️ Hey {query.from_user.first_name} You are clicking on an old button which is expired ⚠️", show_alert=True)
     if int(user) != 0 and query.from_user.id != int(user):
-        return await query.answer(f"⚠️ ഹെലോ {query.from_user.first_name} ബ്രോ, ഇതു {query.message.reply_to_message.from_user.first_name} റിക്വസ്റ്റ് ചെയിത മൂവിയുടെ റിസൾട്ട്സ് കുത്തി നോക്കാതെ ബ്രോന് വേണ്ടത് ബ്രോ റിക്വസ്റ്റ് ചെയ്യുക 😬\n\n⚠️ Hey {query.from_user.first_name} Bro, Search Your Own File, Don't Click Others Results 😬", show_alert=True)
+        return await query.answer(f"⚠️ ഹെലോ {query.from_user.first_name} ബ്രോ, ഇതു {query.message.reply_to_message.from_user.first_name} റിക്വസ്റ്റ് ചെയിത മൂവിയുടെ റിസൾട്ട്സ് ആണ് 😬\n\n⚠️ Hey {query.from_user.first_name} Bro, Search Your Own File, Don't Click Others Results 😬", show_alert=True)
     if movie_  == "close_spellcheck":
         return await query.message.delete()
     movie = movies[(int(movie_))]
@@ -159,7 +159,7 @@ async def advantage_spoll_choker(bot, query):
         k = (movie, files, offset, total_results)
         await auto_filter(bot, query, k)
     else:
-        k = await query.message.edit('🤒 This Movie Not Found In My DataBase 🤒')
+        k = await query.message.edit(f'🤒 Sorry {query.from_user.first_name} This Movie Not Found In My DataBase 🤒')
         await asyncio.sleep(10)
         await k.delete()
 
