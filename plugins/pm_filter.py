@@ -162,7 +162,7 @@ async def advantage_spoll_choker(bot, query):
         k = (movie, files, offset, total_results)
         await auto_filter(bot, query, k)
     else:
-        k = await query.message.edit(f'🤒 Sorry {query.from_user.first_name} This Movie Not Found In My DataBase 🤒')
+        k = await query.message.edit(f'⚠️ Hey {query.from_user.first_name} This Movie Not Found In My DataBase ⚠️')
         await asyncio.sleep(10)
         await k.delete()
 
@@ -350,7 +350,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
         if not files_:
-            return await query.answer(f'Hey {query.from_user.first_name} No such file exist.')
+            return await query.answer(f'Hey {query.from_user.first_name} No such file exist. Send Request Again')
         files = files_[0]
         title = files.file_name
         size=get_size(files.file_size)
@@ -392,7 +392,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
         if not files_:
-            return await query.answer(f'Hello {query.from_user.first_name} No such file exist.')
+            return await query.answer(f'Hello {query.from_user.first_name} No such file exist. Send Request Again')
         files = files_[0]
         title = files.file_name
         size=get_size(files.file_size)
@@ -623,7 +623,7 @@ async def auto_filter(client, msg, spoll=False):
         )
     else:
         btn.append(
-            [InlineKeyboardButton(text="🗓 1/1",callback_data="pages")]
+            [InlineKeyboardButton(text="🗓 1/1 🗓",callback_data="pages")]
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if IMDB else None
     if imdb:
